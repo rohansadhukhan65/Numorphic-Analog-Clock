@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body
+        {
+            background-color: #a70c20;
+            font-family: 'Poppins',sans-serif !important;
+        }
+        
+
+
+        /* ========================= Style for containers ================== */
+        #digitalclock
+        {   
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-family: 'Poppins',sans-serif;
+            font-size: 40px;
+            color: #e0e5eb;
+            text-shadow: -8px -8px 12px #ff0425,8px 8px 12px #b40c22;
+            caret-color:#262626;
+        }
+        #clockContainer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            margin: auto;
+            padding: 10px;
+            border-radius: 50%;
+            /*to make the height and width responsive*/
+            width: 26vw;
+            height: 26vw;
+            box-shadow: inset 11px 11px 22px #7d0918,-11px -11px 22px #d10f28;
+        }
+        #wrap
+        { 
+            height: 30vw;
+            width: 30vw;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            position: absolute;
+            border-radius: 50%;
+            box-shadow:  50px 50px 100px #590611,-50px -50px 100px #f5122f;
+        }
+        /* ========================= Style for containers ================== */
+
+        
+
+        /* ========================= Style for time pin ================== */
+        #hour,
+        #minute,
+        #second {
+            position: absolute;
+            background: #e0e5eb;
+            border-radius: 10px;
+            transform-origin: bottom;
+            box-shadow:11px 11px 21px #4b050e,  -11px -11px 21px #ff1332;
+        }
+        
+        #hour {
+            width: 1.8%;
+            height: 25%;
+            top: 25%;
+            left: 48.85%;
+            opacity: 0.8;
+        }
+        
+        #minute {
+            width: 1.6%;
+            height: 30%;
+            top: 19%;
+            left: 48.9%;
+            opacity: 0.8;
+        }
+        
+        #second {
+            width: 1%;
+            height: 40%;
+            top: 9%;
+            left: 49.25%;
+            opacity: 0.8;
+        }
+        /* ========================= Style for time pin End ================== */
+
+
+        
+        /* ========================= Style for Time Values ================== */
+        #t1,#t2,#t3,#t4,#t5,#t6,#t7,#t8,#t9,#t10,#t11,#t12
+        {
+            position: absolute;
+            font-family: 'Poppins',sans-serif;
+            font-size: 30px;
+            color: #e0e5eb;
+            text-shadow:  11px 11px 21px #4b050e, -11px -11px 21px #ff1332;
+            opacity: 0.8;
+        }
+        #t12
+        {
+            left: 12vw;
+            top: 2vh;
+
+        }
+        #t1
+        {
+            left: 266px;
+            top: 41px;
+
+        }
+        #t2
+        {
+            left: 325px;
+            top: 91px;
+
+        }
+        #t3
+        {
+            left: 25vw;
+            top: 13vw;
+        }
+        #t4
+        {
+            left: 24vw;
+            top: 18vw;
+        }
+        #t5
+        {
+            left: 20vw;
+            top: 22vw;
+        }
+        #t6
+        {
+            left: 13vw;
+            top:24vw;
+        }
+        #t7
+        {
+            left: 6vw ;
+            top:22vw ;
+        }
+        #t8
+        {
+            left: 3vw;
+            top: 18vw;
+        }
+        #t9
+        {
+            left: 2vw ;
+            top: 13vw ;
+        }
+        #t10
+        {
+            left: 2vw ;
+            top: 8vw ;
+        }
+        #t11
+        {
+            left: 6vw ;
+            top: 3vw ;
+        }
+        /* ========================= Style for Time Values End ================== */
+
+        
+    </style>
+</head>
+<body>
+
+ 
+    <div id="wrap">
+        <div id="clockContainer">
+        
+            <!-- Time Values -->
+                <div id="t1">1</div>
+                <div id="t2">2</div>
+                <div id="t3">3</div>
+                <div id="t4">4</div>
+                <div id="t5">5</div>
+                <div id="t6">6</div>
+                <div id="t7">7</div>
+                <div id="t8">8</div>
+                <div id="t9">9</div>
+                <div id="t10">10</div>
+                <div id="t11">11</div>
+                <div id="t12">12</div>
+            <!-- Time Values End -->
+            
+            <!-- Time pin -->
+                <div id="hour"></div>
+                <div id="minute"></div>
+                <div id="second"></div>
+            <!-- Time pin End -->
+    
+       </div>
+    </div>
+ 
+       
+    
+    
+    <script>
+        /* Analog clocl */
+        setInterval(() => {
+            d = new Date(); //object of date()
+            hr = d.getHours();
+            min = d.getMinutes();
+            sec = d.getSeconds();
+            hr_rotation = 30 * hr + min / 2; //converting current time
+            min_rotation = 6 * min;
+            sec_rotation = 6 * sec;
+        
+            hour.style.transform = `rotate(${hr_rotation}deg)`;
+            minute.style.transform = `rotate(${min_rotation}deg)`;
+            second.style.transform = `rotate(${sec_rotation}deg)`;
+        }, 1000);
+        /* Analog clocl end */
+    </script>
+</body>
+</html>
